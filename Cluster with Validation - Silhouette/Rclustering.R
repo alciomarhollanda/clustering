@@ -1,7 +1,8 @@
+# http://www.dcc.fc.up.pt/~ltorgo/DM1_1718/Rclustering.html
 #############
 ##  Code of Slides:  Clustering in R
 #############
-
+#
 
 
 
@@ -19,12 +20,14 @@ dm <- daisy(iris)
 as.matrix(dm)[1,4] # because dm is of class "dist"
 
 
+
 ####### Section:  Partitional Methods
 
 ##
 data(iris)
+
+set.seed(50)
 k3 <- kmeans(iris[,-5],centers=3,iter.max=200)
-k3
 
 
 ####### Section:  Clustering Validation
@@ -38,8 +41,9 @@ s <- silhouette(k3$cluster,
 ##
 plot(s)
 
+
 ##
-set.seed(1234)
+set.seed(50)
 d <- dist(iris[,-5])
 avgS <- c()
 for(k in 2:6) {
@@ -60,6 +64,7 @@ ggplot(data.frame(nClus=2:6,Silh=avgS),
 
 ##
 library(cluster)
+
 pc <- pam(iris[,-5],k=3)
 table(pc$clustering,iris$Species)
 s <- silhouette(pc$clustering,
@@ -67,6 +72,8 @@ s <- silhouette(pc$clustering,
 
 ##
 plot(s)
+clusplot(pc)
+
 
 ##
 library(cluster)
@@ -75,7 +82,7 @@ table(cl$clustering,iris$Species)
 
 ##
 clusplot(cl)
-
+#install.packages("fpc")
 ##
 library(fpc)
 d <- scale(iris[,-5])
