@@ -85,7 +85,6 @@ for(k in 2:6)
     avgS[k-1,m] <- mean(s[,3])
   }
 
-
 library(reshape2)
 dt <- melt(avgS)
 colnames(dt) <- c("NClusts","Meth","AvgS")
