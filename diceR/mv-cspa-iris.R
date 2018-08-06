@@ -9,23 +9,32 @@ head(dat)
 
 
 
-x <- consensus_cluster(dat, nk = 3, reps = 10, algorithms = c("km"),
+x <- consensus_cluster(dat, nk = 3:4, reps = 10, algorithms = c("km","pam","diana"),
                        progress = FALSE)
 
+ccomb_matrix <- consensus_combine(x, element = "matrix")
+ccomb_class <- consensus_combine(x, element = "class")
+
+str(ccomb_matrix, max.level = 2)
+
+options(max.print=1000000)
+# consensus matrix across subsamples and algorithms and k
+cm_all <- consensus_matrix(ccomb_class)
+
+ccomp <- consensus_evaluate(dat, x, plot = FALSE)
+
+knitr::kable(ccomp$ii$`4`)
 
 
 cspaData <- CSPA(x, k = 3)
 
+table(cspaData, iris$Species)
+
 mvData <- majority_voting(x,is.relabelled = FALSE)
-
-
-ggplot(iris, aes(Petal.Length, Petal.Width, color = iris$Species)) + geom_point()
-
 
 table(mvData, iris$Species)
 
-table(cspaData, iris$Species)
-
+ggplot(iris, aes(Petal.Length, Petal.Width, color = iris$Species)) + geom_point()
 
 
 
