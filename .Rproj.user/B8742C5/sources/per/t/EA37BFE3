@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533480529357.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "340443607",
+    "id" : "EA37BFE3",
+    "lastKnownWriteTime" : 1533583089,
+    "last_content_update" : 1533583089472,
+    "path" : "D:/alciomar/Documents/Clustering/diceR/mv-cspa-iris.R",
+    "project_path" : "diceR/mv-cspa-iris.R",
+    "properties" : {
+        "cursorPosition" : "44,0",
+        "scrollLine" : "26",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
